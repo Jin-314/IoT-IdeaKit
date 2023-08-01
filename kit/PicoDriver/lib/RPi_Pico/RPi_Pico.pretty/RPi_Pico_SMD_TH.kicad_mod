@@ -388,7 +388,7 @@
   (pad "TP4" smd roundrect (at -2.5 -17.5) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (roundrect_rratio 0.25) (tstamp c19713d0-ee33-46a2-9307-bc44aee7b2c2))
   (pad "TP5" smd roundrect (at -2.5 -15) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (roundrect_rratio 0.25) (tstamp d9e039d7-afc6-4f58-a30b-5682534fcf4c))
   (pad "TP6" smd roundrect (at -2.5 -12.5) (size 1.524 1.524) (layers "F.Cu" "F.Mask") (roundrect_rratio 0.25) (tstamp 84247f33-e77a-46f8-8536-e476fd9671f4))
-  (model "${KIPRJMOD}/lib/3D View/RaspBerryPi Pico W.step"
+  (model "${KIPRJMOD}/lib/RPi_Pico/RPi_Pico.step"
     (offset (xyz 0 25.5 -0.6))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
