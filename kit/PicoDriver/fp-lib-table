@@ -1,6 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "RPi_Pico")(type "KiCad")(uri "${KIPRJMOD}/lib/RPi_Pico/RPi_Pico.pretty")(options "")(descr ""))
-  (lib (name "NELTRON_5077CR-16SMC2-BK-TR")(type "KiCad")(uri "${KIPRJMOD}/lib/5077CR-16SMC2-BK-TR/NELTRON_5077CR-16SMC2-BK-TR.pretty")(options "")(descr ""))
-  (lib (name "PCM5102A")(type "KiCad")(uri "${KIPRJMOD}/lib/PCM5102A/PCM5102A.pretty")(options "")(descr ""))
-)

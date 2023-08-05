@@ -2,31 +2,22 @@ from machine import Pin
 import time
 
 enable = Pin(18, Pin.OUT)
-left = Pin(22, Pin.OUT)
-right = Pin(26, Pin.OUT)
+left = Pin(0, Pin.OUT)
+right = Pin(1, Pin.OUT)
 
 while True:
+
+    time.sleep(5)
     enable.value(1)
     left.value(1)
     right.value(1)
+    print("forward")
 
-    time.sleep(10)
-
-    left.value(0)
-    right.value(1)
-
-    time.sleep(10)
-
-    left.value(1)
-    right.value(0)
-
-    time.sleep(10)
-
+    time.sleep(5)
     left.value(0)
     right.value(0)
+    print("backward")
 
-    time.sleep(10)
-
+    time.sleep(5)
     enable.value(0)
-
-    time.sleep(10)
+    print("stop")
