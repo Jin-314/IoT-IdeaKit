@@ -1,0 +1,98 @@
+\documentclass[dvipdfmx]{beamer}
+%テーマの設定
+\usetheme{metropolis}
+
+%パッケージの設定
+\usepackage{graphicx}
+\usepackage{ulem}
+\usepackage{pxjahyper}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes}
+\usepackage{listings, jlisting}
+\usepackage{xcolor}
+
+%ソースコード設定
+\lstset{
+  basicstyle={\ttfamily\footnotesize},            % 基礎の文字のフォント設定
+  identifierstyle={\color{identifier}},           % 変数名などのフォント設定
+  commentstyle   ={\color{comment}},              % コメントのフォント設定
+  keywordstyle   =[1]{\color{keyword}},           % 予約語のフォント設定
+  stringstyle    ={\ttfamily\color{string}},      % 文字列のフォント設定
+  tabsize=2
+}
+
+%フォント設定
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+%メタ設定
+\title{IoT×アイディア プログラミング}
+\subtitle{アイディアをカタチに}
+\author[Jin]{Jin}
+\date[\today]{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{はじめに}
+    \begin{large}目的\end{large}
+    \begin{itemize}
+        \setlength{\itemsep}{5mm}
+        \item TurtlePico開発ボードを使用し、IoTに関する知識に加え、\\アイディアをカタチにできる技術を習得する。
+        \item ソフトウェアとハードウェア双方の知識を習得し、\\幅広いレイヤーでの開発を行えるようになる。
+        \item よりプログラミングを扱いやすいようにするため、\\開発環境はVSCodeによるMicropythonを使用する。
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{カリキュラム}
+    \begin{tikzpicture}
+      [every node/.style={rounded corners,inner sep=5pt, minimum width=100pt,minimum height=35pt},
+      pre-subj/.style={fill=blue!20},post-subj/.style={fill=black!20},overlay, remember picture]
+      \node[pre-subj] (a) at (0.13\textwidth,0.1\textheight){\hyperlink{devstruct}{環境構築}};
+      \node[pre-subj,right=15pt of a] (b) {\hyperlink{python}{Pythonの基礎}};
+      \node[pre-subj,right=15pt of b] (c) {\hyperlink{micon}{マイコンの基礎}};
+      \node[pre-subj,below=30pt of c] (d) {\hyperlink{motor}{モーター基礎}};
+      \node[pre-subj,left=15pt of d] (e) {\hyperlink{iot}{IoT基礎}};
+      \node[pre-subj,left=15pt of e] (f) {\hyperlink{create}{ものづくりへの応用}};
+      \foreach \x / \y in {a/b,b/c,c/d,d/e,e/f}{
+        \draw[->,>={Stealth[round]},line width=.5mm] (\x) -- (\y);
+      }
+    \end{tikzpicture}
+\end{frame}
+
+\section*{環境構築}
+    \begin{frame}[plain,noframenumbering]
+        \label{devstruct}
+        \sectionpage
+    \end{frame}
+
+    \begin{frame}{開発環境とは}
+        
+    \end{frame}
+    \begin{frame}{Pythonのインストール}
+        
+    \end{frame}
+    \begin{frame}{VSCodeのインストール}
+        
+    \end{frame}
+    \begin{frame}{拡張機能の設定}
+        
+    \end{frame}
+
+\section{Python基本のキ}
+    \begin{frame}{変数}
+        
+    \end{frame}
+    \begin{frame}{演算}
+        
+    \end{frame}
+    \begin{frame}{if文}
+
+    \end{frame}
+    \begin{frame}{for文}
+        
+    \end{frame}
+\end{document}
