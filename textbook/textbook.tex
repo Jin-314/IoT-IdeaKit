@@ -51,32 +51,51 @@
     \begin{tikzpicture}
       [every node/.style={rounded corners,inner sep=5pt, minimum width=100pt,minimum height=35pt},
       pre-subj/.style={fill=blue!20},post-subj/.style={fill=black!20},overlay, remember picture]
-      \node[pre-subj] (a) at (0.13\textwidth,0.1\textheight){\hyperlink{devstruct}{環境構築}};
-      \node[pre-subj,right=15pt of a] (b) {\hyperlink{python}{Pythonの基礎}};
-      \node[pre-subj,right=15pt of b] (c) {\hyperlink{micon}{マイコンの基礎}};
-      \node[pre-subj,below=30pt of c] (d) {\hyperlink{motor}{モーター基礎}};
-      \node[pre-subj,left=15pt of d] (e) {\hyperlink{iot}{IoT基礎}};
-      \node[pre-subj,left=15pt of e] (f) {\hyperlink{create}{ものづくりへの応用}};
+      \node[pre-subj] (a) at (0.13\textwidth,0.1\textheight){環境構築};
+      \node[pre-subj,right=15pt of a] (b) {Pythonの基礎};
+      \node[pre-subj,right=15pt of b] (c) {マイコンの基礎};
+      \node[pre-subj,below=30pt of c] (d) {モーター基礎};
+      \node[pre-subj,left=15pt of d] (e) {IoT基礎};
+      \node[pre-subj,left=15pt of e] (f) {ものづくりへの応用};
       \foreach \x / \y in {a/b,b/c,c/d,d/e,e/f}{
         \draw[->,>={Stealth[round]},line width=.5mm] (\x) -- (\y);
       }
     \end{tikzpicture}
 \end{frame}
 
-\section*{環境構築}
-    \begin{frame}[plain,noframenumbering]
-        \label{devstruct}
-        \sectionpage
-    \end{frame}
+\section{環境構築}
 
     \begin{frame}{開発環境とは}
-        
+      プログラミングにはツールがたくさん存在しており、それらを導入することを「環境構築」と呼ぶ。
+      \begin{description}
+        \item[\alert{テキストエディタ}] \mbox{}\\ プログラムを直接記述するツール。\\今回はMicrosoftのVSCodeを使用。
+        \item[\alert{コンパイラ}] \mbox{}\\ プログラムを機械語に変換するツール。\\C言語などで使用される。
+        \item[\alert{インタプリタ}] \mbox{}\\ プログラムを逐次実行するツール。\\今回はVSCode拡張機能「MicroPico」内蔵のPerlを使用。
+      \end{description}
     \end{frame}
     \begin{frame}{Pythonのインストール}
-        
+      Pythonのバージョンは3.9以上のものをインストールする。ダウンロードリンクは以下の通り。
+      \begin{itemize}
+        \item Windows: \url{https://www.python.org/downloads/windows/}
+        \item Mac: \url{https://www.python.org/downloads/mac-osx/}
+        \item Linux: \url{https://www.python.org/downloads/source/}
+      \end{itemize}
+      \vfill
+      ダウンロードができたらインストーラを実行し、指示に従って\alert{インストール}する。\\
+      パスの追加が必要なため、この時にインストールフォルダを控えておくようにする。
+    \end{frame}
+    \begin{frame}{環境変数の追加}
+      今回はWindowsの場合のみ説明する。
+      \begin{enumerate}
+        \item システム環境変数と検索し、環境変数設定画面を開く
+        \item 「環境変数」をクリック
+        \item システム環境変数のPathを選択し、編集をクリック
+        \item 「編集」をクリックしてPythonのインストール先を追加
+      \end{enumerate}
     \end{frame}
     \begin{frame}{VSCodeのインストール}
-        
+        ダウンロードリンクは \url{https://code.visualstudio.com/download}\\
+        ダウンロードしたインストーラの指示に従ってインストールする。
     \end{frame}
     \begin{frame}{拡張機能の設定}
         
