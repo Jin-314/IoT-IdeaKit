@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7e57127f669d8e7f3f967d3c5466d50946147b084bf3d1cd0b046b42cccb6f3a
-size 781
+(fp_lib_table
+  (version 7)
+  (lib (name "RPi_Pico")(type "KiCad")(uri "${KIPRJMOD}/lib/RPi_Pico/RPi_Pico.pretty")(options "")(descr ""))
+  (lib (name "NELTRON_5077CR-16SMC2-BK-TR")(type "KiCad")(uri "${KIPRJMOD}/lib/5077CR-16SMC2-BK-TR/NELTRON_5077CR-16SMC2-BK-TR.pretty")(options "")(descr ""))
+  (lib (name "PCM5102A")(type "KiCad")(uri "${KIPRJMOD}/lib/PCM5102A/PCM5102A.pretty")(options "")(descr ""))
+  (lib (name "Connector_JST_ZH")(type "KiCad")(uri "${KIPRJMOD}/lib/Connector_JST_ZH/Connector_JST_ZH.pretty")(options "")(descr ""))
+  (lib (name "SW_SKRPACE010")(type "KiCad")(uri "${KIPRJMOD}/lib/SKRPACE010/SW_SKRPACE010.pretty")(options "")(descr ""))
+  (lib (name "TechRing")(type "KiCad")(uri "${KIPRJMOD}/lib/Logos/TechRing.pretty")(options "")(descr ""))
+)
