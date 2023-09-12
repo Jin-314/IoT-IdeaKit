@@ -116,6 +116,7 @@ class WavPlayer:
         byte_rate = struct.unpack("<I", wav_file.read(4))[0]
         block_align = struct.unpack("<H", wav_file.read(2))[0]
         self.bits_per_sample = struct.unpack("<H", wav_file.read(2))[0]
+        print("sample rate: %d" % self.sample_rate)
 
         # usually the sub chunk2 ID ("data") comes next, but
         # some online MP3->WAV converters add
