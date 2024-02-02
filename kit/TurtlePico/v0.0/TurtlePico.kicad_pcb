@@ -7214,7 +7214,7 @@
     (stroke (width 0.1) (type default)) (layer "Edge.Cuts") (tstamp bf651c46-175a-47df-ada9-3468b86c13ea))
   (gr_arc (start 118.11 139.7) (mid 115.415923 138.584077) (end 114.3 135.89)
     (stroke (width 0.1) (type default)) (layer "Edge.Cuts") (tstamp d15b3e35-b3e0-444d-a5f6-f6d9141ed80c))
-  (gr_text "Turtle Pico v1" (at 166.37 82.55) (layer "B.SilkS") (tstamp b796c68f-5189-454c-809e-e94689540560)
+  (gr_text "Turtle Pico v0.0" (at 165.1 82.55) (layer "B.SilkS") (tstamp b796c68f-5189-454c-809e-e94689540560)
     (effects (font (size 2 2) (thickness 0.3) bold) (justify bottom mirror))
   )
   (gr_text "Y" (at 118.745 119.761 90) (layer "F.SilkS") (tstamp 01d14fc4-d618-4c43-a0da-51d045718286)
