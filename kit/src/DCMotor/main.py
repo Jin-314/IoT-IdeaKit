@@ -1,9 +1,9 @@
 from machine import Pin
 import time
 
-enable = Pin(18, Pin.OUT)
-left = Pin(0, Pin.OUT)
-right = Pin(1, Pin.OUT)
+enable = Pin(14, Pin.OUT)
+left = Pin(17, Pin.OUT)
+right = Pin(15, Pin.OUT)
 
 while True:
 
