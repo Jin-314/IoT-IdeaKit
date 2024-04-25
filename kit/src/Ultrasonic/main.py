@@ -4,6 +4,8 @@ from machine import Pin
 #ピンを設定
 trig = Pin(15, Pin.OUT)
 echo = Pin(14, Pin.IN)
+red = Pin(4, Pin.OUT)
+blue = Pin(18, Pin.OUT)
 
 while True:
     trig.low()
@@ -19,4 +21,5 @@ while True:
     timepassed = signalon - signaloff
     distance = (timepassed * 0.0343) / 2
     print("dinstance: ",distance,"cm")
+    blue.value(1)
     time.sleep(0.1)

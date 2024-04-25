@@ -17,7 +17,7 @@ iot_core_endpoint = 'endpoint'
 topic = 'topic'
 
 #Wi-Fi設定
-ssid = 'SSID'
+ssid = 'Kenshyu62'
 password = 'PW'
 
 #pin設定
@@ -42,7 +42,7 @@ display.show()
 #Wi-Fiに接続
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect(ssid, password)
+wlan.connect(ssid, "")
 
 #接続を待機
 max_wait = 10
