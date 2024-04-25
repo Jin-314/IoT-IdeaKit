@@ -32,15 +32,19 @@ while True:
     time.sleep_us(10)
     trig.low()
     signaloff, signalon = 0, 0
+    tmout_cnt = 0
     #echoに返ってくるまでの時間を計測
     while echo.value() == 0:
         signaloff = time.ticks_us()
+        tmout_cnt += 1
+        if tmout_cnt > 2000 :
+            break
     while echo.value() == 1:
         signalon = time.ticks_us()
     timepassed = signalon - signaloff
     distance = (timepassed * 0.0343) / 2
     #logging
-    #print("dinstance: ",distance,"cm")
+    print("dinstance: ",distance,"cm")
 
     if distance < 15 and status == False:
         status = True
