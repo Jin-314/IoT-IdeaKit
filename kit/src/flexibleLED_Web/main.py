@@ -3,10 +3,11 @@ from machine import PWM
 import network
 import socket
 import time
+import TurtlePico
  
-#GPIO27,28をPWM出力に設定
-blue=PWM(machine.Pin(28, machine.Pin.OUT))
-red = PWM(machine.Pin(27, machine.Pin.OUT))
+#LEDのピンをPWM出力に設定
+blue=PWM(machine.Pin(TurtlePico.LED_R, machine.Pin.OUT))
+red = PWM(machine.Pin(TurtlePico.LED_L, machine.Pin.OUT))
 
 #周波数とデューティー比を設定
 blue.freq(1000)

@@ -1,9 +1,10 @@
 from machine import Pin
 import time
+import TurtlePico
 
-enable = Pin(14, Pin.OUT)
-left = Pin(17, Pin.OUT)
-right = Pin(15, Pin.OUT)
+enable = Pin(TurtlePico.MOTOR_EN, Pin.OUT)
+left = Pin(TurtlePico.MOTOR_L, Pin.OUT)
+right = Pin(TurtlePico.MOTOR_R, Pin.OUT)
 
 while True:
 
@@ -11,6 +12,16 @@ while True:
     enable.value(1)
     left.value(1)
     right.value(1)
+    print("forward")
+
+    time.sleep(5)
+    left.value(0)
+    right.value(1)
+    print("turn right")
+
+    time.sleep(5)
+    left.value(1)
+    right.value(0)
     print("forward")
 
     time.sleep(5)

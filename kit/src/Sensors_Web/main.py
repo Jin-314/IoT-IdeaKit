@@ -9,11 +9,12 @@ import img_lib
 import framebuf
 import network
 import socket
+import TurtlePico
 
 #i2c設定
-i2c = I2C(0, scl=Pin(17), sda=Pin(16), freq=100000)
+i2c = I2C(TurtlePico.I2C_ID, scl=Pin(TurtlePico.I2C_SCL), sda=Pin(TurtlePico.I2C_SDA), freq=100000)
 #spi設定
-spi = SPI( 1,baudrate = 100000, sck = Pin(10), mosi = Pin(11))
+spi = SPI(TurtlePico.SPI_ID, baudrate = 100000, sck = Pin(TurtlePico.SPI_SCK), mosi = Pin(TurtlePico.SPI_MOSI))
 
 #アドレスを設定
 addr_ag = 0x6a
@@ -24,11 +25,11 @@ ssid = 'SSID'
 password = 'PASS'
 
 #ピンを設定
-trig = Pin(15, Pin.OUT)
-echo = Pin(14, Pin.IN)
-cs = Pin(13,Pin.OUT)
-dc = Pin(9,Pin.OUT)
-rst = Pin(8,Pin.OUT)
+trig = Pin(TurtlePico.TRIG_TX, Pin.OUT)
+echo = Pin(TurtlePico.ECHO_RX, Pin.IN)
+cs = Pin(TurtlePico.OLED_CS, Pin.OUT)
+dc = Pin(TurtlePico.OLED_DC, Pin.OUT)
+rst = Pin(TurtlePico.OLED_RST, Pin.OUT)
 
 #OLEDを初期化
 display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, cs)

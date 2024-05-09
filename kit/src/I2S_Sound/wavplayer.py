@@ -32,7 +32,7 @@ class WavPlayer:
     FLUSH = 3
     STOP = 4
 
-    def __init__(self, id, sck_pin, ws_pin, sd_pin, ibuf, root="/sd"):
+    def __init__(self, id, sck_pin, ws_pin, sd_pin, ibuf, volume=0, root="/sd"):
         self.id = id
         self.sck_pin = sck_pin
         self.ws_pin = ws_pin
@@ -49,6 +49,7 @@ class WavPlayer:
         self.num_read = 0
         self.sbuf = 1000
         self.nflush = 0
+        self.volume = volume
 
         # allocate a small array of blank audio samples used for silence
         self.silence_samples = bytearray(self.sbuf)
@@ -69,6 +70,7 @@ class WavPlayer:
                     _ = self.wav.seek(self.first_sample_offset)
                 _ = self.audio_out.write(self.silence_samples)
             else:
+                self.audio_out.shift(buf=self.wav_samples_mv[: self.num_read], bits=self.bits_per_sample, shift=-4+self.volume)
                 _ = self.audio_out.write(self.wav_samples_mv[: self.num_read])
         elif self.state == WavPlayer.RESUME:
             self.state = WavPlayer.PLAY
@@ -116,7 +118,6 @@ class WavPlayer:
         byte_rate = struct.unpack("<I", wav_file.read(4))[0]
         block_align = struct.unpack("<H", wav_file.read(2))[0]
         self.bits_per_sample = struct.unpack("<H", wav_file.read(2))[0]
-        print("sample rate: %d" % self.sample_rate)
 
         # usually the sub chunk2 ID ("data") comes next, but
         # some online MP3->WAV converters add
@@ -183,3 +184,13 @@ class WavPlayer:
             return True
         else:
             return False
+        
+    def increase_volume(self):
+        if self.volume < 4:
+            self.volume += 1
+        print(self.volume)
+    
+    def decrease_volume(self):
+        if self.volume > -8:
+            self.volume -= 1
+        print(self.volume)

@@ -2,13 +2,13 @@ from machine import Pin, I2C, reset
 import time
 import ustruct
 from fusion import Fusion
+import TurtlePico
 
-led = Pin("LED", Pin.OUT)
-calibrate_sw = Pin(3, Pin.IN)
-reset_sw = Pin(22, Pin.IN)
+calibrate_sw = Pin(TurtlePico.SW_R, Pin.IN)
+reset_sw = Pin(TurtlePico.SW_L, Pin.IN)
 
 fuse = Fusion()
-i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=100000)
+i2c = I2C(TurtlePico.I2C_ID, scl=Pin(TurtlePico.I2C_SCL), sda=Pin(TurtlePico.I2C_SDA), freq=100000)
 
 # デバイスのアドレスをスキャンします
 addr = i2c.scan()
@@ -80,8 +80,6 @@ print(fuse.magbias)
 
 while True:
 
-    led.value(1)
-
     #print("=======================================================")
     #statusレジスタのアドレス0x27の下から1ビット目が加速度のデータ更新状態
     status = i2c.readfrom_mem(addr_ag, 0x27, 1)
@@ -89,8 +87,6 @@ while True:
     accel = get9DofData("accel")
     gyro = get9DofData("gyro")
     mag = get9DofData("mag")
-
-    led.value(0)
 
     #print(str(ax) + "," + str(ay) + "," + str(az) + ","  + str(gx) + "," + str(gy) + "," + str(gz) + ","  + str(mx) + "," + str(my) + "," + str(mz))
     

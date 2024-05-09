@@ -32,7 +32,7 @@ class WavPlayer:
     FLUSH = 3
     STOP = 4
 
-    def __init__(self, id, sck_pin, ws_pin, sd_pin, ibuf, root="/sd"):
+    def __init__(self, id, sck_pin, ws_pin, sd_pin, ibuf, volume=0, root="/sd"):
         self.id = id
         self.sck_pin = sck_pin
         self.ws_pin = ws_pin
@@ -49,7 +49,7 @@ class WavPlayer:
         self.num_read = 0
         self.sbuf = 1000
         self.nflush = 0
-        self.volume = 1
+        self.volume = volume
 
         # allocate a small array of blank audio samples used for silence
         self.silence_samples = bytearray(self.sbuf)

@@ -17,13 +17,13 @@ spi = SPI( 1,
            mosi = Pin(11),
            miso = Pin(12))
 
-sd = sdcard.SDCard(spi, Pin(6))
+sd = sdcard.SDCard(spi, Pin(27))
 
-os.mount(sd, '/sd')
-os.chdir('sd')
+#os.mount(sd, '/sd')
+#os.chdir('')
 
-list = os.listdir()
-print(list)
+#list = os.listdir()
+#print(list)
 
 wp = WavPlayer(
     id=0,
@@ -31,9 +31,10 @@ wp = WavPlayer(
     ws_pin=ws_pin,
     sd_pin=sd_pin,
     ibuf=40000,
+    root="/"
 )
 
-wp.play("Elden-Ring.wav", loop=False)
+wp.play("music-16k-16bits-mono.wav", loop=False)
 # wait until the entire WAV file has been played
 while wp.isplaying() == True:
     # other actions can be done inside this loop during playback

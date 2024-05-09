@@ -35,7 +35,7 @@ class Fusion(object):
         self.deltat = DeltaT(timediff)      # Time between updates
         self.q = [1.0, 0.0, 0.0, 0.0]       # vector to hold quaternion
         GyroMeasError = radians(40)         # Original code indicates this leads to a 2 sec response time
-        self.beta = sqrt(3.0 / 4.0) * GyroMeasError * 10 # compute beta (see README)
+        self.beta = sqrt(3.0 / 4.0) * GyroMeasError # compute beta (see README)
         self.pitch = 0
         self.heading = 0
         self.roll = 0

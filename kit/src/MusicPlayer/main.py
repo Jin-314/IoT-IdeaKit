@@ -5,34 +5,35 @@ import ssd1306
 import img_lib
 import framebuf
 import time
+import TurtlePico
 
 #Pin設定
-orange=PWM(Pin(28, Pin.OUT))
-green = PWM(Pin(27, Pin.OUT))
-playSW = Pin(22, Pin.IN, Pin.PULL_DOWN)
-stopSW = Pin(26, Pin.IN, Pin.PULL_DOWN)
+orange = PWM(Pin(TurtlePico.LED_R, Pin.OUT))
+green = PWM(Pin(TurtlePico.LED_L, Pin.OUT))
+playSW = Pin(TurtlePico.SW_R, Pin.IN, Pin.PULL_DOWN)
+stopSW = Pin(TurtlePico.SW_L, Pin.IN, Pin.PULL_DOWN)
 #oled
-oled_cs = Pin(13)
-dc = Pin(9)
-rst = Pin(8)
+oled_cs = Pin(TurtlePico.OLED_CS)
+dc = Pin(TurtlePico.OLED_DC)
+rst = Pin(TurtlePico.OLED_RST)
 #sd
-sd_cs = Pin(6)
+sd_cs = Pin(TurtlePico.SD_CS)
 #i2s
-sck_pin = Pin(19)   # シリアルクロック出力
-ws_pin = Pin(20)    # ワードクロック出力
-sd_pin = Pin(21)    # シリアルデータ出力
+sck_pin = Pin(TurtlePico.I2S_BCLK)   # シリアルクロック出力
+ws_pin = Pin(TurtlePico.I2S_LRCLK)    # ワードクロック出力
+sd_pin = Pin(TurtlePico.I2S_SDATA)    # シリアルデータ出力
 #ultrasonic
-trig = Pin(15, Pin.OUT)
-echo = Pin(14, Pin.IN)
+trig = Pin(TurtlePico.TRIG_TX, Pin.OUT)
+echo = Pin(TurtlePico.ECHO_RX, Pin.IN)
 
 orange.freq(1000)
 green.freq(1000)
 
-spi = SPI( 1,
+spi = SPI( TurtlePico.SPI_ID,
            baudrate = 100000,
-           sck  = Pin(10),
-           mosi = Pin(11),
-           miso = Pin(12))
+           sck  = Pin(TurtlePico.SPI_SCK),
+           mosi = Pin(TurtlePico.SPI_MOSI),
+           miso = Pin(TurtlePico.SPI_MISO))
 
 sd = sdcard.SDCard(spi, sd_cs)
 display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
@@ -65,7 +66,7 @@ def main():
                 continue
             
             wp = WavPlayer(
-                id=0,
+                id=TurtlePico.I2S_ID,
                 sck_pin=sck_pin,
                 ws_pin=ws_pin,
                 sd_pin=sd_pin,

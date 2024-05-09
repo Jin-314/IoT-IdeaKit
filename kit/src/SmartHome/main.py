@@ -8,9 +8,10 @@ import framebuf
 import network
 import ubinascii
 from umqtt.simple import MQTTClient
+import TurtlePico
 
 #spi設定
-spi = SPI( 1,baudrate = 100000, sck = Pin(10), mosi = Pin(11))
+spi = SPI( TurtlePico.SPI_ID, baudrate = 100000, sck = Pin(10), mosi = Pin(11))
 
 #mqtt設定
 iot_core_endpoint = 'endpoint'
@@ -21,14 +22,14 @@ ssid = 'Kenshyu62'
 password = 'PW'
 
 #pin設定
-oled_cs = Pin(7,Pin.OUT)
-dc = Pin(6,Pin.OUT)
-rst = Pin(5,Pin.OUT)
-enable = Pin(14, Pin.OUT)
-left = Pin(15, Pin.OUT)
-right = Pin(17, Pin.OUT)
-red = Pin(4, Pin.OUT)
-blue = Pin(18, Pin.OUT)
+oled_cs = Pin(TurtlePico.OLED_CS,Pin.OUT)
+dc = Pin(TurtlePico.OLED_DC,Pin.OUT)
+rst = Pin(TurtlePico.OLED_RST,Pin.OUT)
+enable = Pin(TurtlePico.MOTOR_EN, Pin.OUT)
+left = Pin(TurtlePico.MOTOR_L, Pin.OUT)
+right = Pin(TurtlePico.MOTOR_R, Pin.OUT)
+red = Pin(TurtlePico.LED_L, Pin.OUT)
+blue = Pin(TurtlePico.LED_R, Pin.OUT)
 
 display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
 fb = framebuf.FrameBuffer(img_lib.techring, 74, 64, framebuf.MONO_HLSB)
