@@ -1,6 +1,7 @@
 import machine
 from machine import PWM
-import time, TurtlePico
+import time
+from lib.TurtlePico import TurtlePico
 
 blue=PWM(machine.Pin(TurtlePico.LED_R, machine.Pin.OUT))
 red = PWM(machine.Pin(TurtlePico.LED_L, machine.Pin.OUT))

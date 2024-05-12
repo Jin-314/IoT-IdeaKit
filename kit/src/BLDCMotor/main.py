@@ -1,6 +1,6 @@
 from machine import Pin, PWM
 import time
-import TurtlePico
+import lib.TurtlePico as TurtlePico
 
 r_sw = Pin(TurtlePico.SW_R, Pin.IN)
 l_sw = Pin(TurtlePico.SW_L, Pin.IN, Pin.PULL_DOWN)

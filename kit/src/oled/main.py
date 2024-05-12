@@ -1,8 +1,8 @@
 from machine import Pin, SPI
-import ssd1306
-import img_lib
 import framebuf
-import TurtlePico
+from lib.ssd1306 import SSD1306_SPI
+from lib.img_lib import img_lib
+from lib.TurtlePico import TurtlePico
 
 led1 = Pin(TurtlePico.LED_R, Pin.OUT)
 led2 = Pin(TurtlePico.LED_L, Pin.OUT)
@@ -17,7 +17,7 @@ spi = SPI( TurtlePico.SPI_ID, baudrate = 100000, sck = Pin(TurtlePico.SPI_SCK), 
 oled_cs = Pin(TurtlePico.OLED_CS,Pin.OUT)
 dc = Pin(TurtlePico.OLED_DC,Pin.OUT)
 rst = Pin(TurtlePico.OLED_RST,Pin.OUT)
-display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
+display = SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
 
 fb = framebuf.FrameBuffer(img_lib.jin_img, 128, 64, framebuf.MONO_HLSB)
 

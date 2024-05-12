@@ -1,11 +1,12 @@
 from machine import PWM, Pin, SPI, reset
 from wavplayer import WavPlayer
-import os, sdcard
-import ssd1306
-import img_lib
+import os
+from lib.sdcard import SDCard
+from lib.ssd1306 import SSD1306_SPI
+from lib.img_lib import img_lib
 import framebuf
 import time
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 #Pin設定
 orange = PWM(Pin(TurtlePico.LED_R, Pin.OUT))
@@ -35,8 +36,8 @@ spi = SPI( TurtlePico.SPI_ID,
            mosi = Pin(TurtlePico.SPI_MOSI),
            miso = Pin(TurtlePico.SPI_MISO))
 
-sd = sdcard.SDCard(spi, sd_cs)
-display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
+sd = SDCard(spi, sd_cs)
+display = SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
 fb = framebuf.FrameBuffer(img_lib.techring, 74, 64, framebuf.MONO_HLSB)
 
 def main():
@@ -95,6 +96,7 @@ def main():
                     wp.stop()
                     green.duty_u16(0)
                     orange.duty_u16(65535)
+                    time.sleep(0.5)
                     break
                 if stopSW.value() == 1:
                     #print("pause")

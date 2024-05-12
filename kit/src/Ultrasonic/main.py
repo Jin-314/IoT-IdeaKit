@@ -1,6 +1,6 @@
 import time
 from machine import Pin
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 #ピンを設定
 trig = Pin(TurtlePico.TRIG_TX, Pin.OUT)

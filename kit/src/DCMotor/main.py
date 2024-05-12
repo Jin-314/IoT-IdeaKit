@@ -1,6 +1,6 @@
 from machine import Pin
 import time
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 enable = Pin(TurtlePico.MOTOR_EN, Pin.OUT)
 left = Pin(TurtlePico.MOTOR_L, Pin.OUT)

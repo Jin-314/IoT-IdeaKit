@@ -1,6 +1,6 @@
 from machine import Pin, I2C
 import time
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 i2c = I2C(TurtlePico.I2C_ID, scl=Pin(TurtlePico.I2C_SCL), sda=Pin(TurtlePico.I2C_SDA), freq=100000)
 

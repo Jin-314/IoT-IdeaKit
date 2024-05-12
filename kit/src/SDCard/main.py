@@ -1,7 +1,8 @@
 from machine import Pin, SPI
 import machine
-import os, sdcard
-import TurtlePico
+import os
+from lib.sdcard import SDCard
+from lib.TurtlePico import TurtlePico
 
 cs = Pin(TurtlePico.SD_CS)
 
@@ -11,7 +12,7 @@ spi = SPI( TurtlePico.SPI_ID,
            mosi = machine.Pin(TurtlePico.SPI_MOSI),
            miso = machine.Pin(TurtlePico.SPI_MISO))
 
-sd = sdcard.SDCard(spi, cs)
+sd = SDCard(spi, cs)
 
 os.mount(sd, '/sd')
 os.chdir('sd')

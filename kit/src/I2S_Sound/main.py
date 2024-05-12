@@ -1,10 +1,10 @@
 import os
 from machine import I2S
 from machine import Pin
-from wavplayer import WavPlayer
-from sdcard import SDCard
 from machine import SPI
-import TurtlePico
+from lib.wavplayer import WavPlayer
+from lib.sdcard import SDCard
+from lib.TurtlePico import TurtlePico
 
 cs = Pin(TurtlePico.SD_CS)
 

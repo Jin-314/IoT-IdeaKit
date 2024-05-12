@@ -2,13 +2,13 @@ import machine
 from machine import Pin, SPI, reset
 import json
 import time
-import ssd1306
-import img_lib
+from lib.ssd1306 import SSD1306_SPI
+from lib.img_lib import img_lib
 import framebuf
 import network
 import ubinascii
-from umqtt.simple import MQTTClient
-import TurtlePico
+from lib.umqtt.simple import MQTTClient
+from lib.TurtlePico import TurtlePico
 
 #spi設定
 spi = SPI( TurtlePico.SPI_ID, baudrate = 100000, sck = Pin(10), mosi = Pin(11))
@@ -31,7 +31,7 @@ right = Pin(TurtlePico.MOTOR_R, Pin.OUT)
 red = Pin(TurtlePico.LED_L, Pin.OUT)
 blue = Pin(TurtlePico.LED_R, Pin.OUT)
 
-display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
+display = SSD1306_SPI(128, 64, spi, dc, rst, oled_cs)
 fb = framebuf.FrameBuffer(img_lib.techring, 74, 64, framebuf.MONO_HLSB)
 state = ""
 

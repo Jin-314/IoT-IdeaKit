@@ -2,7 +2,7 @@ import time
 from machine import Pin
 from machine import PWM
 import neopixel
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 pixelNum = 15
 

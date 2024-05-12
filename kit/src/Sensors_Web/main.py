@@ -4,12 +4,12 @@ from machine import Pin, I2C, SPI
 import time
 import ustruct
 import math
-import ssd1306
-import img_lib
+from lib.ssd1306 import SSD1306_SPI
+from lib.img_lib import img_lib
 import framebuf
 import network
 import socket
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 #i2c設定
 i2c = I2C(TurtlePico.I2C_ID, scl=Pin(TurtlePico.I2C_SCL), sda=Pin(TurtlePico.I2C_SDA), freq=100000)
@@ -32,7 +32,7 @@ dc = Pin(TurtlePico.OLED_DC, Pin.OUT)
 rst = Pin(TurtlePico.OLED_RST, Pin.OUT)
 
 #OLEDを初期化
-display = ssd1306.SSD1306_SPI(128, 64, spi, dc, rst, cs)
+display = SSD1306_SPI(128, 64, spi, dc, rst, cs)
 fb = framebuf.FrameBuffer(img_lib.techring, 74, 64, framebuf.MONO_HLSB)
 
 #加速度・ジャイロセンサのレジスタ

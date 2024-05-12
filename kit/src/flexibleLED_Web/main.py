@@ -3,7 +3,7 @@ from machine import PWM
 import network
 import socket
 import time
-import TurtlePico
+from lib.TurtlePico import TurtlePico
  
 #LEDのピンをPWM出力に設定
 blue=PWM(machine.Pin(TurtlePico.LED_R, machine.Pin.OUT))

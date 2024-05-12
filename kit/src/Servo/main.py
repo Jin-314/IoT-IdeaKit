@@ -1,6 +1,6 @@
 from machine import PWM, Pin
 import time
-import TurtlePico
+from lib.TurtlePico import TurtlePico
 
 servo1 = PWM(Pin(TurtlePico.ESC_SERVO_FL))
 servo1.freq(50)

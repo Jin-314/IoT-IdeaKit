@@ -1,8 +1,8 @@
 from machine import Pin, I2C, reset
 import time
 import ustruct
-from fusion import Fusion
-import TurtlePico
+from lib.fusion import Fusion
+from lib.TurtlePico import TurtlePico
 
 calibrate_sw = Pin(TurtlePico.SW_R, Pin.IN)
 reset_sw = Pin(TurtlePico.SW_L, Pin.IN)
