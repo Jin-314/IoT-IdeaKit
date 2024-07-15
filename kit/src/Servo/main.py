@@ -2,7 +2,7 @@ from machine import PWM, Pin
 import time
 from lib.TurtlePico import TurtlePico
 
-servo1 = PWM(Pin(TurtlePico.ESC_SERVO_FL))
+servo1 = PWM(Pin(TurtlePico.ESC_SERVO_FR))
 servo1.freq(50)
 
 max_duty = 65025
