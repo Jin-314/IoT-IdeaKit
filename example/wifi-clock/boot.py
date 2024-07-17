@@ -1,1 +1,0 @@
-print("boot.py is running...")

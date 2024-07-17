@@ -12,10 +12,12 @@
 *.bck
 *.kicad_pcb-bak
 *.kicad_sch-bak
+*.kicad_sch-bak
 *-backups
 *.kicad_prl
 *.sch-bak
-*~
+*.csv#
+*kicad_sch.lck
 _autosave-*
 *.tmp
 *-save.pro
