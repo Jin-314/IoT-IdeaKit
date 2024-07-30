@@ -339,3 +339,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 *.der
+
+#wifi-setting file
+wifi_config.py

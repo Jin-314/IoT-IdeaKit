@@ -1,7 +1,7 @@
 M48
-; DRILL file {KiCad 7.0.10-7.0.10~ubuntu22.04.1} date 2024年05月07日 18時37分14秒
+; DRILL file {KiCad 7.0.10-7.0.10~ubuntu22.04.1} date 2024年07月18日 16時59分04秒
 ; FORMAT={-:-/ absolute / inch / decimal}
-; #@! TF.CreationDate,2024-05-07T18:37:14+09:00
+; #@! TF.CreationDate,2024-07-18T16:59:04+09:00
 ; #@! TF.GenerationSoftware,Kicad,Pcbnew,7.0.10-7.0.10~ubuntu22.04.1
 ; #@! TF.FileFunction,Plated,1,2,PTH
 FMAT,2
@@ -21,7 +21,7 @@ T6C0.0394
 ; #@! TA.AperFunction,Plated,PTH,ComponentDrill
 T7C0.0402
 ; #@! TA.AperFunction,Plated,PTH,ComponentDrill
-T8C0.0472
+T8C0.0710
 ; #@! TA.AperFunction,Plated,PTH,ComponentDrill
 T9C0.1260
 %
@@ -45,7 +45,7 @@ X5.73Y-4.9
 X5.99Y-4.87
 X6.05Y-4.97
 X6.295Y-4.7876
-X6.4Y-4.1
+X6.4Y-4.15
 X6.65Y-2.77
 X6.65Y-3.02
 T2
@@ -71,9 +71,9 @@ X5.6931Y-4.85
 X5.7916Y-4.85
 X5.89Y-4.85
 T6
-X4.87Y-3.18
-X4.87Y-3.28
-X4.87Y-3.38
+X4.87Y-3.16
+X4.87Y-3.26
+X4.87Y-3.36
 X4.87Y-4.5
 X4.87Y-4.6
 X4.87Y-4.7
@@ -93,9 +93,9 @@ X6.18Y-4.9
 X6.18Y-5.0
 X6.37Y-4.7
 X6.47Y-4.7
-X6.61Y-3.18
-X6.61Y-3.28
-X6.61Y-3.38
+X6.61Y-3.16
+X6.61Y-3.26
+X6.61Y-3.36
 X6.61Y-4.4994
 X6.61Y-4.5994
 X6.61Y-4.6994
@@ -144,10 +144,9 @@ X6.077Y-4.5256
 X6.077Y-4.6256
 X6.077Y-4.7256
 T8
-X6.5447Y-3.503
-X6.5447Y-3.6802
-X6.84Y-3.4774
-X6.84Y-3.7057
+X6.5428Y-3.5045
+X6.5428Y-3.721
+X6.7515Y-3.5537
 T9
 X4.64Y-2.55
 X4.64Y-4.98
