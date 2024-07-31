@@ -1,40 +1,34 @@
 from img_lib import img_lib
 from fdrawer import FontDrawer
-import os, framebuf, ntptime, time, math
-
+import os, framebuf, time, math, ntptime
 class clock:
 
     def __init__(self, display):
+        
         self.display = display
+        ntptime.host = "time.cloudflare.com"
+
         os.chdir('/fonts')
         self.font16 = FontDrawer( frame_buffer=self.display, font_name = '7SegmentDisplay_16' )
         self.font25 = FontDrawer( frame_buffer=self.display, font_name = 'Nixie_23' )
-        self.dial = framebuf.FrameBuffer(img_lib.analog_dial, 128, 43, framebuf.MONO_HLSB)
-        ntptime.host = "time.cloudflare.com"
-
-    item_selected = 0
-    isAnalog = False
-    is24H = False
-    num_items = 4
     
-    menu_item_fb = [
-        framebuf.FrameBuffer(img_lib.icon_back, 16, 16, framebuf.MONO_HLSB),
-        framebuf.FrameBuffer(img_lib.icon_24h, 16, 16, framebuf.MONO_HLSB),
-        framebuf.FrameBuffer(img_lib.icon_clock, 16, 16, framebuf.MONO_HLSB),
-        framebuf.FrameBuffer(img_lib.icon_digital, 16, 16, framebuf.MONO_HLSB),
-    ]
+        self.menu_item_fb = [
+            framebuf.FrameBuffer(img_lib.icon_back, 16, 16, framebuf.MONO_HLSB),
+            framebuf.FrameBuffer(img_lib.icon_24h, 16, 16, framebuf.MONO_HLSB),
+            framebuf.FrameBuffer(img_lib.icon_clock, 16, 16, framebuf.MONO_HLSB),
+            framebuf.FrameBuffer(img_lib.icon_digital, 16, 16, framebuf.MONO_HLSB),
+        ]
 
-    sel_item_box = framebuf.FrameBuffer(img_lib.item_sel_background_mini, 20, 20, framebuf.MONO_HLSB)
+        self.dial = framebuf.FrameBuffer(img_lib.analog_dial, 128, 43, framebuf.MONO_HLSB)
+        self.sel_item_box = framebuf.FrameBuffer(img_lib.item_sel_background_mini, 20, 20, framebuf.MONO_HLSB)
+        
+        self.isAnalog = False
+        self.is24H = False
+        self.isTimeset = False
+        self.item_selected = 0
+        self.num_items = 4
 
     def showDisplay(self):
-
-        # 時間の同期を試みる
-        try:
-            # NTPサーバーから取得した時刻でPico WのRTCを同期
-            ntptime.settime()
-        except:
-            print("時間の同期に失敗しました。")
-            return
         
         npttime = time.localtime(time.time() + 9 * 60 * 60)
         
@@ -149,3 +143,19 @@ class clock:
             raise Exception( "Invalid Menu Item!" )
         
         return 0
+
+    def setTimeThread(self):
+        cnt =  0
+        while(True):
+            # 時間の同期を試みる
+            try:
+                # NTPサーバーから取得した時刻でPico WのRTCを同期
+                ntptime.settime()
+                self.isTimeset = True
+                return
+            except:
+                #タイムアウトの設定
+                cnt = cnt + 1
+                if(cnt > 15):
+                    raise Exception('ntp timeout')
+                #同期に失敗した場合は再度挑戦
