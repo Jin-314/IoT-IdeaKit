@@ -1,4 +1,4 @@
-# Making electronics work easier and more widely
+# Turtle Pico - Making electronics work easier and more widely
 
 ![Turtle Pico](board/main/pic/PXL_20240507_160146261.jpg)
 
