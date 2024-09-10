@@ -36,6 +36,7 @@ sc = menu
 #WiFiに接続
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
+print(wlan.scan())
 wlan.connect(lib.wifi_config.ssid, lib.wifi_config.pw)
 
 max_wait = 10
