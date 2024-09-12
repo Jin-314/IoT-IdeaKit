@@ -311,6 +311,38 @@
     [
       "7af2d99d-e350-48e7-86b4-20911ea922f3",
       ""
+    ],
+    [
+      "59a35d12-4257-431e-88bf-1e8ba721801f",
+      "RP2040"
+    ],
+    [
+      "2c32ebfb-e695-436a-82e3-2c732b457792",
+      "Storage"
+    ],
+    [
+      "7936705e-854a-4784-9724-997ebf4458ae",
+      "Power_USB"
+    ],
+    [
+      "30a58c44-3c8a-4ad6-a7be-85fee873ce7a",
+      "Motor"
+    ],
+    [
+      "399e14dd-2b99-438e-9945-456c74135ff2",
+      "Sensor"
+    ],
+    [
+      "c005a3df-ded2-48f6-91de-22e6372e232d",
+      "Audio"
+    ],
+    [
+      "3559871a-0f23-4a86-a659-f5f50e9db57b",
+      "LED_Switch"
+    ],
+    [
+      "42224473-68eb-43d4-97ed-5df85a0a50dc",
+      "Connector"
     ]
   ],
   "text_variables": {}
