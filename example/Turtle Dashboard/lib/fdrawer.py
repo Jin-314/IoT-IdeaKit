@@ -216,5 +216,5 @@ class FontDrawer:
 		xpos = x
 		for ch in text:
 			widths = self.print_char( ch, xpos, y )
-			xpos += widths[1] # add proportional_witdth of characters
+			xpos += widths[0] # add proportional_witdth of characters
 			xpos += self._spacing*self._fontscale # 2 pixels spacing between chars

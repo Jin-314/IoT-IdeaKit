@@ -319,7 +319,7 @@
     (property "Value" "Micro_SD" (at 151.13 128.016 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5" (at 203.2 92.71 0)
+    (property "Footprint" "Connector_Card:microSD_HC_Hirose_DM3D-SF" (at 203.2 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.mouser.jp/datasheet/2/185/DM3AT_SF_PEJM5_CL0609_0031_0_00_2DDrawing_00009471-1614303.pdf" (at 151.13 107.95 0)

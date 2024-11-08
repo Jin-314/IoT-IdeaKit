@@ -1,6 +1,7 @@
 from machine import Pin, SPI, I2C
 import framebuf, os
 import lib, network, time
+from lib.fdrawer import FontDrawer
 
 led1 = Pin(lib.TurtlePico.LED_R, Pin.OUT)
 led2 = Pin(lib.TurtlePico.LED_L, Pin.OUT)
@@ -31,6 +32,7 @@ display = lib.SSD1306_I2C(128, 64, i2c)
 #スクリーンオブジェクト
 menu = lib.screens.menu(display)
 cl = lib.screens.clock(display)
+wt = lib.screens.weather(display)
 sc = menu
 
 #WiFiに接続
@@ -64,6 +66,8 @@ while(True):
                 sc = cl
                 if(not sc.isTimeset):
                     sc.setTimeThread()
+            elif(menu.menu_item_char[menu.item_selected] == 'Weather'):
+                sc = wt
             else:
                 raise Exception( "Invalid Menu Item!" )
         else:
